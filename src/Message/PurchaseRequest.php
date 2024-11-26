@@ -104,6 +104,13 @@ class PurchaseRequest extends AbstractRequest
         $data['ip_address'] = $this->getClientIp();
         $data['capture'] = $this->getCapture();
 
+        //3DS parameters
+        $data['three_d_secure'] = [
+            'enabled' => true,
+            'fallback_ok' => true,
+            'callback_url' => $this->getParameters()['notifyUrl'] . '&transaction_id=' . $this->getParameters()['transactionId']//$this->getParameters()['returnUrl']
+        ];
+
         // Token payments.  Really should use cardReference as the token
         // parameter but historically this has used token instead, so allow
         // both.
