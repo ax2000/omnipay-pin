@@ -108,7 +108,7 @@ class PurchaseRequest extends AbstractRequest
         $data['three_d_secure'] = [
             'enabled' => true,
             'fallback_ok' => true,
-            'callback_url' => $this->getParameters()['notifyUrl'] . '&transaction_id=' . $this->getParameters()['transactionId']//$this->getParameters()['returnUrl']
+            'callback_url' => $this->getParameters()['notifyUrl'] . '&transaction_id=' . $this->getParameters()['transactionId']
         ];
 
         // Token payments.  Really should use cardReference as the token
